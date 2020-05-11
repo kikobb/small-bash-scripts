@@ -1,0 +1,36 @@
+#!/bin/bash
+
+#this script opens up different quick reference material and 
+# cheat sheets related to commandline 
+
+help()
+{
+	echo "HELP"
+        echo "vi, vim"
+}
+
+if [ "$#" -gt "1" ]; then
+	echo "Invalid number of arguments ($#)."
+	exit
+fi
+
+if [ "$#" -eq "0" ]; then
+	help
+	exit
+fi
+
+case $1 in 
+	h|help)
+		help
+		;;
+	#vim
+	vi|vim)
+		gvfs-open ~/Documents/cheat_sheets/vim.pdf
+		exit
+		;;
+	*)
+		echo "Sorry, no entry for: $1." 
+
+
+
+esac

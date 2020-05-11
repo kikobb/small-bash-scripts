@@ -1,0 +1,14 @@
+#!/bin/bash
+
+## This script opens new gnome-terminal then execute command if provided. 
+
+if [ "$#" -ne 0 ]; then
+	for (( i=1; i<=$#; i++ ))
+	do
+		command="$command${!i} "
+	done
+	gnome-terminal -- bash -c -i "${command::-1}; exec bash" > /dev/null 2>&1
+else
+	gnome-terminal -- bash -c -i "exec bash" > /dev/null 2>&1
+fi
+
