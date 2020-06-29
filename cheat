@@ -40,6 +40,11 @@ case $1 in
 		gio open ./cheat_sheets/bash_cheatsheet.pdf
 		exit
 		;;
+	#git
+	git)
+		gio open ./cheat_sheets/git-cheat-sheet-education.pdf
+		exit
+		;;
 	*)
 		echo "Sorry, no entry for: $1." 
 
