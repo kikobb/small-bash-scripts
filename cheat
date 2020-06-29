@@ -27,17 +27,17 @@ case $1 in
 		;;
 	#vim
 	vi|vim)
-		gio open ~/Documents/cheat_sheets/vim.pdf
+		gio open ./cheat_sheets/vim.pdf
 		exit
 		;;
 	#docker
 	doc|docker)
-		gio open ~/Documents/cheat_sheets/docker_cheatsheet.pdf
+		gio open ./cheat_sheets/docker_cheatsheet.pdf
 		exit
 		;;
 	#bash
 	bash)
-		gio open ~/Documents/cheat_sheets/bash_cheatsheet.pdf
+		gio open ./cheat_sheets/bash_cheatsheet.pdf
 		exit
 		;;
 	*)
