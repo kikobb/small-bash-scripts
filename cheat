@@ -5,8 +5,10 @@
 
 help()
 {
-	echo "HELP"
-        echo "vi, vim"
+	echo "HELP:"
+        echo "1) vi, vim"
+        echo "2) doc, docker"
+        echo "3) bash"
 }
 
 if [ "$#" -gt "1" ]; then
@@ -25,7 +27,17 @@ case $1 in
 		;;
 	#vim
 	vi|vim)
-		gvfs-open ~/Documents/cheat_sheets/vim.pdf
+		gio open ~/Documents/cheat_sheets/vim.pdf
+		exit
+		;;
+	#docker
+	doc|docker)
+		gio open ~/Documents/cheat_sheets/docker_cheatsheet.pdf
+		exit
+		;;
+	#bash
+	bash)
+		gio open ~/Documents/cheat_sheets/bash_cheatsheet.pdf
 		exit
 		;;
 	*)
