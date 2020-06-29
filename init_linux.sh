@@ -54,12 +54,13 @@ source ~/.profile
 # .bashrc #
 
 BASHRC_PATH="$HOME/.bashrc"
+# you HAVE to escape backslashes \\
 read -d '' BASHRC << 'EOM'
 #cusotm command prompt
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u:\[\033[01;34m\]\W\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\\[\\033[01;32m\\]\\u:\\[\\033[01;34m\\]\\W\\[\\033[00m\\]\\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@:\W\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\\u@:\\W\\$ '
 fi
 
 #before delete foloving line uncomment same line on line 64
@@ -82,7 +83,7 @@ while IFS= read -r LINE; do
 			echo "#unset color_prompt force_color_prompt" >> "$BASHRC_PATH"_tmp
 	elif [[ "$LINE" == "$START_TAG" ]]; then
     	echo "$START_TAG" >> "$BASHRC_PATH"_tmp
-    	echo "$BASHRC" >> "$BASHRC_PATH"_tmp
+    	echo -E "$BASHRC" >> "$BASHRC_PATH"_tmp
     	echo "$END_TAG" >> "$BASHRC_PATH"_tmp
     	IGNORE=true
     	CONFIGURED=true
@@ -93,7 +94,7 @@ done < "$BASHRC_PATH"
 
 if [[ "$CONFIGURED" = false ]]; then
 	echo "$START_TAG" >> "$BASHRC_PATH"_tmp
-    echo "$BASHRC" >> "$BASHRC_PATH"_tmp
+    echo -E "$BASHRC" >> "$BASHRC_PATH"_tmp
     echo "$END_TAG" >> "$BASHRC_PATH"_tmp		
 fi
 
