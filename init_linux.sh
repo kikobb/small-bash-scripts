@@ -16,7 +16,7 @@ fi
 #-----------------#
 EOF
 
-
+source ~/.profile
 
 
 # .bashrc #
@@ -48,3 +48,5 @@ cat << EOF >> ~/.bashrc
 #enabling shell completition
 complete -W "$(tldr 2>/dev/null --list)" tldr
 EOF
+
+source ~/.bashrc
